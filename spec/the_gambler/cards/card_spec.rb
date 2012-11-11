@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 module TheGambler
-  SUIT_STRINGS = %w{S C H D}
-  SUIT_SYMBOLS = %w{spades clubs hearts diamonds}.map(&:to_sym)
-  RANKS        = %w{A 2 3 4 5 6 7 8 9 10 J Q K}
-  
+
   describe Card do
     describe '#initialize' do
       
@@ -21,36 +18,36 @@ module TheGambler
       end
       
       describe 'with hash' do
-        RANKS.each do |rank|
-          SUIT_STRINGS.each_with_index do |suit, i|
+        Card::RANKS.each do |rank|
+          Card::SUIT_STRINGS.each_with_index do |suit, i|
             it "should correctly parse {rank: #{rank}, suit: #{suit}}" do
               card = Card.new rank: rank, suit: suit
               card.rank.should eq(rank)
-              card.suit.should eq(SUIT_SYMBOLS[i])
+              card.suit.should eq(Card::SUIT_SYMBOLS[i])
             end
           end
         end
       end
       
       describe 'with array' do
-        RANKS.each do |rank|
-          SUIT_STRINGS.each_with_index do |suit, i|
+        Card::RANKS.each do |rank|
+          Card::SUIT_STRINGS.each_with_index do |suit, i|
             it "should correctly parse [#{rank}, #{suit}]" do
               card = Card.new [rank, suit]
               card.rank.should eq(rank)
-              card.suit.should eq(SUIT_SYMBOLS[i])
+              card.suit.should eq(Card::SUIT_SYMBOLS[i])
             end
           end
         end
       end
       
       describe 'with string' do
-        RANKS.each do |rank|
-          SUIT_STRINGS.each_with_index do |suit, i|
+        Card::RANKS.each do |rank|
+          Card::SUIT_STRINGS.each_with_index do |suit, i|
             it "should correctly parse '#{rank}#{suit}'" do
               card = Card.new "#{rank}#{suit}"
               card.rank.should eq(rank)
-              card.suit.should eq(SUIT_SYMBOLS[i])
+              card.suit.should eq(Card::SUIT_SYMBOLS[i])
             end
           end
         end
