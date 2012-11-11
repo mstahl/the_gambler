@@ -36,7 +36,7 @@ module TheGambler
         RANKS.each do |rank|
           SUIT_STRINGS.each_with_index do |suit, i|
             it "should correctly parse [#{rank}, #{suit}]" do
-              card = Card.new rank: rank, suit: suit
+              card = Card.new [rank, suit]
               card.rank.should eq(rank)
               card.suit.should eq(SUIT_SYMBOLS[i])
             end
