@@ -39,6 +39,18 @@ module TheGambler
       end
     end
 
+    def ace?
+      rank == 'A'
+    end
+
+    def face_card?
+      %w{J Q K}.include?(rank)
+    end
+
+    def numerical_value
+      RANKS.index(rank) + 1
+    end
+
     def rank
       RANKS[@raw % 13]
     end

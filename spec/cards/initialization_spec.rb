@@ -17,7 +17,7 @@ module TheGambler
         (->{ Card.new rank: 'A', suit: 'D' }).should_not raise_error
       end
       
-      it 'can take a Card as its argument', wip:true do
+      it 'can take a Card as its argument' do
         (->{ Card.new(Card.new rank: 'A', suit: 'D') }).should_not raise_error
       end
       
