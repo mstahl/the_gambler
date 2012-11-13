@@ -17,6 +17,10 @@ module TheGambler
         (->{ Card.new rank: 'A', suit: 'D' }).should_not raise_error
       end
       
+      it 'can take a Card as its argument', wip:true do
+        (->{ Card.new(Card.new rank: 'A', suit: 'D') }).should_not raise_error
+      end
+      
       describe 'with hash' do
         Card::RANKS.each do |rank|
           Card::SUIT_STRINGS.each_with_index do |suit, i|

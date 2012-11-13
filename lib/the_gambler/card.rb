@@ -26,11 +26,17 @@ module TheGambler
         else
           raise ArgumentError.new("Invalid hash: #{arg.inspect}")
         end
+      when 'Card','TheGambler::Card'
+        rank, suit = arg.rank, arg.suit
       else
         raise ArgumentError.new("Must supply either a String, an Array, or a Hash, not a #{arg.class.to_s}")
       end
       
-      @raw = 13 * SUIT_STRINGS.index(suit) + RANKS.index(rank)
+      if SUIT_STRINGS.include?(suit)
+        @raw = 13 * SUIT_STRINGS.index(suit) + RANKS.index(rank)
+      elsif SUIT_SYMBOLS.include?(suit)
+        @raw = 13 * SUIT_SYMBOLS.index(suit) + RANKS.index(rank)
+      end
     end
 
     def rank
