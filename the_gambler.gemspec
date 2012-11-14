@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "the_gambler"
-  s.version = "0.0.0"
+  s.version = ""
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["max thom stahl"]
   s.date = "2012-11-14"
-  s.description = "Really common tasks in programs that use playing cards are a pain to implement. Don't reinvent the wheel."
+  s.description = "\n    Really common tasks in programs that use playing cards are a pain to implement. This is my\n    implementation. Use it. Or don't.\n  "
   s.email = "max@villainousindustries.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -33,11 +33,22 @@ Gem::Specification.new do |s|
     "lib/the_gambler/poker.rb",
     "spec/cards/initialization_spec.rb",
     "spec/decks/deck_spec.rb",
+    "spec/hands/hand_flush_spec.rb",
+    "spec/hands/hand_four_of_a_kind_spec.rb",
+    "spec/hands/hand_full_house_spec.rb",
+    "spec/hands/hand_high_card_spec.rb",
+    "spec/hands/hand_one_pair_spec.rb",
+    "spec/hands/hand_royal_flush_spec.rb",
+    "spec/hands/hand_straight_flush_spec.rb",
+    "spec/hands/hand_straight_spec.rb",
+    "spec/hands/hand_three_of_a_kind_spec.rb",
+    "spec/hands/hand_two_pair_spec.rb",
     "spec/hands/hands_spec.rb",
     "spec/players/player_spec.rb",
     "spec/spec_helper.rb",
-    "spec/support/shared_examples/shared_hands.rb",
-    "spec/the_gambler_spec.rb"
+    "spec/support/shared_examples/shared_poker_hands.rb",
+    "spec/the_gambler_spec.rb",
+    "the_gambler.gemspec"
   ]
   s.homepage = "http://github.com/mstahl/the_gambler"
   s.licenses = ["MIT"]
