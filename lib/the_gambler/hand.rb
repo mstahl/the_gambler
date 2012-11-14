@@ -8,9 +8,5 @@ module TheGambler
       @contents = []
       args.each{|a| @contents << Card.new(a) }
     end
-    
-    def poker_value
-      
-    end
   end
 end
