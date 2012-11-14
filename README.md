@@ -1,8 +1,24 @@
-= the_gambler
+# The Gambler
 
-Description goes here.
+Yet another poker hand evaluator. I'm writing it because poker hand evaluators
+are useful to me in some of my side projects. If it's useful to you, too, all
+the better.
 
-== Contributing to the_gambler
+## Usage
+
+Include the gem in your Gemfile:
+
+    gem 'the_gambler'
+
+Start rockin':
+
+    card = Card.new "AH"
+    hand = Hand.new "QH", card, %w{10 D}
+
+You can initialize `Card`s using a (case-insensitive) String (_e.g._ `"JC"`), 
+an Array (_e.g._ `['9', 'S']`), or a Hash (_e.g._ `{rank: 'Q', suit: :diamonds}`).
+
+## Contributing to the_gambler
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -12,7 +28,7 @@ Description goes here.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2012 max thom stahl. See LICENSE.txt for
 further details.
