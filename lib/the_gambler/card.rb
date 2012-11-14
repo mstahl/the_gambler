@@ -59,5 +59,9 @@ module TheGambler
       SUIT_SYMBOLS[@raw / 13]
     end
 
+    def to_s
+      "#{rank}#{SUIT_STRINGS[@raw / 13]}"
+    end
+
   end
 end

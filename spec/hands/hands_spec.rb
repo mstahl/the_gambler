@@ -1,6 +1,18 @@
 module TheGambler
+  
   describe Hand do
-    include_examples "hands"
+    
+    # include_examples "poker hands"
+    let(:royal_flush)     { Hand.new "AD", "KD", "QD", "JD", "10D" }
+    let(:straight_flush)  { Hand.new "JC", "10C", "9C", "8C", "7C" }
+    let(:four_of_a_kind)  { Hand.new "4D", "4C", "4S", "4H", "AC" }
+    let(:full_house)      { Hand.new "5S", "5H", "5D", "8S", "8H" }
+    let(:flush)           { Hand.new "2D", "7D", "8D", "QD", "3D" }
+    let(:straight)        { Hand.new "AC", "2D", "3D", "4D", "5D" }
+    let(:three_of_a_kind) { Hand.new "AD", "AC", "AS", "JD", "10D" }
+    let(:two_pair)        { Hand.new "AD", "AC", "QD", "QS", "10D" }
+    let(:one_pair)        { Hand.new "AD", "AC", "QD", "JD", "10D" }
+    let(:high_card)       { Hand.new "AD", "3H", "QD", "JD", "10D" }
     
     describe '#blackjack?' do
       it 'should identify JH AC as a blackjack' do
@@ -14,7 +26,7 @@ module TheGambler
     
     describe '#blackjack_value' do
       context 'without aces' do
-        it 'should value basic two-card hands', wip:true do
+        it 'should value basic two-card hands' do
           Hand.new(*%w{2D 9D}).blackjack_value.should eq(11)
         end
       
@@ -40,7 +52,103 @@ module TheGambler
     end
     
     describe '#poker_value' do
+      it 'should value a royal_flush over a straight_flush' do
+        royal_flush.poker_value.should > straight_flush.poker_value
+      end
+      
+      it 'should value a straight_flush over a four_of_a_kind' do
+        straight_flush.poker_value.should > four_of_a_kind.poker_value
+      end
+      
+      it 'should value a four_of_a_kind over a full_house' do
+        four_of_a_kind.poker_value.should > full_house.poker_value
+      end
+      
+      it 'should value a full_house over a flush' do
+        full_house.poker_value.should > flush.poker_value
+      end
+      
+      it 'should value a flush over a straight' do
+        flush.poker_value.should > straight.poker_value
+      end
+      
+      it 'should value a straight over a three_of_a_kind' do
+        straight.poker_value.should > three_of_a_kind.poker_value
+      end
+      
+      it 'should value a three_of_a_kind over a two_pair' do
+        three_of_a_kind.poker_value.should > two_pair.poker_value
+      end
+      
+      it 'should value a two_pair over a one_pair' do
+        two_pair.poker_value.should > one_pair.poker_value
+      end
+      
+      it 'should value a one_pair over a high_card' do
+        one_pair.poker_value.should > high_card.poker_value
+      end
+    end
+    
+    describe '#royal_flush?' do
+      it 'should identify royal flushes' do
+        royal_flush.royal_flush?.should be_true
+      end
+    end
+    
+    describe '#straight_flush' do
+      it 'should identify straight flushes' do
+        straight_flush.straight_flush?.should be_true
+      end
+    end
+    
+    describe '#four_of_a_kind' do
+      it 'should identify four of a kind' do
+        four_of_a_kind.four_of_a_kind?.should be_true
+      end
+    end
+    
+    describe '#full_house' do
       
     end
+    
+    describe '#flush' do
+      it 'should identify flushes' do
+        flush.flush?.should be_true
+        straight_flush.flush?.should be_true
+      end
+    end
+    
+    describe '#straight' do
+      it 'should identify straights' do
+        straight.straight?.should be_true
+        straight_flush.straight?.should be_true
+      end
+    end
+    
+    describe '#three_of_a_kind' do
+      it 'should identify three of a kind' do
+        three_of_a_kind.three_of_a_kind?.should be_true
+      end
+    end
+    
+    describe '#two_pair' do
+      it 'should identify two pair' do
+        two_pair.two_pair?.should be_true
+      end
+    end
+    
+    describe '#one_pair' do
+      it 'should identify one pair' do
+        one_pair.one_pair?.should be_true
+      end
+    end
+    
+    describe '#high_card' do
+      it 'should identify high card' do
+        high_card.high_card?.should be_true
+      end
+    end
+    
+    
   end
 end

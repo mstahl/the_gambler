@@ -45,7 +45,7 @@ module TheGambler
         end
       end
       
-      describe 'with string' do
+      describe 'with string', wip2:true do
         Card::RANKS.each do |rank|
           Card::SUIT_STRINGS.each_with_index do |suit, i|
             it "should correctly parse '#{rank}#{suit}'" do
