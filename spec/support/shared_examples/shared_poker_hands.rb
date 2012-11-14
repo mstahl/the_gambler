@@ -1,5 +1,3 @@
-require 'the_gambler/hand'
-
 shared_examples "poker hands" do
   let(:royal_flush)     { TheGambler::Hand.new "AD", "KD", "QD", "JD", "10D" }
   let(:straight_flush)  { TheGambler::Hand.new "JC", "10C", "9C", "8C", "7C" }

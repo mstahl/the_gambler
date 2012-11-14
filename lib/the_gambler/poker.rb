@@ -38,8 +38,8 @@ module TheGambler
     end
     
     def straight?
-      values = contents.map(&:numerical_value)
-      values.sort == (values.min..values.max).to_a
+      values = contents.map(&:numerical_value).sort
+      values == (values.min..values.max).to_a or values == [1, 10, 11, 12, 13]
     end
     
     def flush?
