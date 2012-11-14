@@ -100,7 +100,9 @@ module TheGambler
     end
     
     describe '#full_house' do
-      
+      it 'should identify full houses' do
+        full_house.full_house?.should be_true
+      end
     end
     
     describe '#flush' do

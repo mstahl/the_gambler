@@ -7,13 +7,6 @@ module TheGambler
     # Valuation methods ===========================================================================
     
     def poker_value
-      # POKER_HANDS.reverse.each_with_index do |hand, i|
-      #   if self.send(:"#{hand}?") then
-      #     value = 10 ** (POKER_HANDS.count - i)
-      #     break
-      #   end
-      # end
-      
       if royal_flush? then
         10e10
       elsif straight_flush? then
@@ -23,9 +16,13 @@ module TheGambler
       elsif full_house? then
         10e7
       elsif flush? then
-        10e6
+        10e6 + contents.max_by(&:numerical_value).numerical_value
       elsif straight? then
-        10e5 + contents.max_by(&:numerical_value).numerical_value
+        if contents.map(&:numerical_value).sort == [2, 3, 4, 5, 14] then
+          10e5 + 1
+        else
+          10e5 + contents.max_by(&:numerical_value).numerical_value
+        end
       elsif three_of_a_kind? then
         10e4
       elsif two_pair? then
@@ -33,7 +30,7 @@ module TheGambler
       elsif one_pair? then
         10e2
       elsif high_card? then
-        10
+        contents.max_by(&:numerical_value).numerical_value
       end
     end
     
@@ -57,7 +54,7 @@ module TheGambler
     
     def straight?
       values = contents.map(&:numerical_value).sort
-      values == (values.min..values.max).to_a or values == [1, 10, 11, 12, 13]
+      values == (values.min..values.max).to_a or values == [2, 3, 4, 5, 14]
     end
     
     def flush?
@@ -78,7 +75,7 @@ module TheGambler
     end
     
     def royal_flush?
-      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{\AA([SCHD])10\1J\1Q\1K\1\Z}i
+      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{\A10([SCHD])J\1Q\1K\1A\1\Z}i
     end
     
   end
