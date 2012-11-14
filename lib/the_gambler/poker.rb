@@ -7,16 +7,34 @@ module TheGambler
     # Valuation methods ===========================================================================
     
     def poker_value
-      value = 1
+      # POKER_HANDS.reverse.each_with_index do |hand, i|
+      #   if self.send(:"#{hand}?") then
+      #     value = 10 ** (POKER_HANDS.count - i)
+      #     break
+      #   end
+      # end
       
-      POKER_HANDS.reverse.each_with_index do |hand, i|
-        if self.send(:"#{hand}?") then
-          value = 10 ** (POKER_HANDS.count - i)
-          break
-        end
+      if royal_flush? then
+        10e10
+      elsif straight_flush? then
+        10e9 + contents.max_by(&:numerical_value).numerical_value
+      elsif four_of_a_kind? then
+        10e8
+      elsif full_house? then
+        10e7
+      elsif flush? then
+        10e6
+      elsif straight? then
+        10e5 + contents.max_by(&:numerical_value).numerical_value
+      elsif three_of_a_kind? then
+        10e4
+      elsif two_pair? then
+        10e3
+      elsif one_pair? then
+        10e2
+      elsif high_card? then
+        10
       end
-      
-      value
     end
     
     # Different kinds of hands ====================================================================
