@@ -18,7 +18,10 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/mstahl/the_gambler"
   gem.license = "MIT"
   gem.summary = %Q{Classes and modules for card-playing apps.}
-  gem.description = %Q{Really common tasks in programs that use playing cards are a pain to implement. Don't reinvent the wheel.}
+  gem.description = %Q{
+    Really common tasks in programs that use playing cards are a pain to implement. This is my
+    implementation. Use it. Or don't.
+  }
   gem.email = "max@villainousindustries.com"
   gem.authors = ["max thom stahl"]
   # dependencies defined in Gemfile

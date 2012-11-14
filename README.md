@@ -18,6 +18,15 @@ Start rockin':
 You can initialize `Card`s using a (case-insensitive) String (_e.g._ `"JC"`), 
 an Array (_e.g._ `['9', 'S']`), or a Hash (_e.g._ `{rank: 'Q', suit: :diamonds}`).
 
+## Beta progress
+
+Right now, the following stuff works. Assume anything not mentioned in this list doesn't work properly.
+
+* Blackjack hand evaluation
+* (Very) Rough poker hand evaluation (i.e., flush > three of a kind, but not distinguishing between different instances of hands)
+* Exact poker hand evaluation of straights, flushes, straight flushes, and high cards.
+* Pretty much nothing else.
+
 ## Contributing to the_gambler
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.

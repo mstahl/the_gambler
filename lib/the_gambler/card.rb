@@ -4,7 +4,7 @@ module TheGambler
 
     SUIT_STRINGS = %w{S C H D}
     SUIT_SYMBOLS = %w{spades clubs hearts diamonds}.map(&:to_sym)
-    RANKS        = %w{A 2 3 4 5 6 7 8 9 10 J Q K}
+    RANKS        = %w{2 3 4 5 6 7 8 9 10 J Q K A}
 
     def initialize(arg)
       case arg.class.to_s
@@ -48,7 +48,7 @@ module TheGambler
     end
 
     def numerical_value
-      RANKS.index(rank) + 1
+      RANKS.index(rank) + 2
     end
 
     def rank
@@ -57,6 +57,10 @@ module TheGambler
 
     def suit
       SUIT_SYMBOLS[@raw / 13]
+    end
+
+    def to_s
+      "#{rank}#{SUIT_STRINGS[@raw / 13]}"
     end
 
   end
