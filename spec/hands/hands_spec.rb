@@ -64,7 +64,7 @@ module TheGambler
         flush.poker_value.should > straight.poker_value
       end
       
-      it 'should value a straight over a three_of_a_kind', wip:true do
+      it 'should value a straight over a three_of_a_kind' do
         straight.poker_value.should > three_of_a_kind.poker_value
       end
       

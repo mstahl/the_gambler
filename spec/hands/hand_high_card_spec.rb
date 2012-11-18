@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module TheGambler
-  describe "full house hand" do
+  describe "high card hand" do
     
     describe 'valuation' do
       it 'should recognize that ace high is more valuable than king high' do
