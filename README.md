@@ -24,8 +24,11 @@ Right now, the following stuff works. Assume anything not mentioned in this list
 
 * Blackjack hand evaluation
 * (Very) Rough poker hand evaluation (i.e., flush > three of a kind, but not distinguishing between different instances of hands)
-* Exact poker hand evaluation of straights, flushes, straight flushes, and high cards.
-* Pretty much nothing else.
+* Exact poker hand evaluation of all types of hands (!!!).
+
+### Known issues
+
+* Hands with the same ranking but different high cards are valued equally.
 
 ## Contributing to the_gambler
  
