@@ -27,7 +27,7 @@ module TheGambler
         end
       elsif three_of_a_kind? then
         c = contents.group_by(&:numerical_value)
-        10e4 + c.keys.detect{|k| c[k].count == 2}
+        10e4 + c.keys.detect{|k| c[k].count == 3}
       elsif two_pair? then
         10e3
       elsif one_pair? then
