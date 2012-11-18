@@ -10,7 +10,11 @@ module TheGambler
       if royal_flush? then
         10e10
       elsif straight_flush? then
-        10e9 + contents.max_by(&:numerical_value).numerical_value
+        if contents.map(&:numerical_value).sort == [2, 3, 4, 5, 14] then
+          10e9 + 1
+        else
+          10e9 + contents.max_by(&:numerical_value).numerical_value
+        end
       elsif four_of_a_kind? then
         c = contents.group_by(&:numerical_value)
         10e8 + c.keys.max_by{|k| c[k].count}
