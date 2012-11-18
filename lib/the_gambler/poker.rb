@@ -52,8 +52,9 @@ module TheGambler
         c = contents.group_by(&:numerical_value)
         
         pair_one, pair_two = c.keys.select{|k| c[k].count == 2}.minmax
+        kicker = c.keys.detect{|k| c[k].count == 1}
         
-        10e3 + 13 * pair_two + pair_one
+        10e3 + 13 * 13 * pair_two + 13 * pair_one + kicker
         
       elsif one_pair? then
         
