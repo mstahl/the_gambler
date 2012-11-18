@@ -33,7 +33,11 @@ module TheGambler
         c = contents.group_by(&:numerical_value)
         10e4 + c.keys.detect{|k| c[k].count == 3}
       elsif two_pair? then
-        10e3
+        c = contents.group_by(&:numerical_value)
+        
+        pair_one, pair_two = c.keys.select{|k| c[k].count == 2}.minmax
+        
+        10e3 + 13 * pair_two + pair_one
       elsif one_pair? then
         c = contents.group_by(&:numerical_value)
         10e2 + c.keys.detect{|k| c[k].count == 2}
