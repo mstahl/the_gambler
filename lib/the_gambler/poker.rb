@@ -26,7 +26,8 @@ module TheGambler
           10e5 + contents.max_by(&:numerical_value).numerical_value
         end
       elsif three_of_a_kind? then
-        10e4
+        c = contents.group_by(&:numerical_value)
+        10e4 + c.keys.detect{|k| c[k].count == 2}
       elsif two_pair? then
         10e3
       elsif one_pair? then
