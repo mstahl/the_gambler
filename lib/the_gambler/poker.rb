@@ -15,7 +15,8 @@ module TheGambler
         c = contents.group_by(&:numerical_value)
         10e8 + c.keys.max_by{|k| c[k].count}
       elsif full_house? then
-        10e7
+        c = contents.group_by(&:numerical_value)
+        10e7 + c.keys.detect{|k| c[k].count == 3} * 13 + c.keys.detect{|k| c[k].count == 2}
       elsif flush? then
         10e6 + contents.max_by(&:numerical_value).numerical_value
       elsif straight? then
