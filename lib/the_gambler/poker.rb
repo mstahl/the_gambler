@@ -12,7 +12,8 @@ module TheGambler
       elsif straight_flush? then
         10e9 + contents.max_by(&:numerical_value).numerical_value
       elsif four_of_a_kind? then
-        10e8
+        c = contents.group_by(&:numerical_value)
+        10e8 + c.keys.max_by{|k| c[k].count}
       elsif full_house? then
         10e7
       elsif flush? then
