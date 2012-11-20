@@ -18,17 +18,15 @@ Start rockin':
 You can initialize `Card`s using a (case-insensitive) String (_e.g._ `"JC"`), 
 an Array (_e.g._ `['9', 'S']`), or a Hash (_e.g._ `{rank: 'Q', suit: :diamonds}`).
 
+Hands are just arrays of cards. You can use the `#blackjack_value` and `#poker_value` methods to use
+them in games.
+
 ## Beta progress
 
 Right now, the following stuff works. Assume anything not mentioned in this list doesn't work properly.
 
 * Blackjack hand evaluation
-* (Very) Rough poker hand evaluation (i.e., flush > three of a kind, but not distinguishing between different instances of hands)
-* Exact poker hand evaluation of all types of hands (!!!).
-
-### Known issues
-
-* Hands with the same ranking but different high cards are valued equally.
+* Poker hand evaluation
 
 ## Contributing to `the_gambler`
  
