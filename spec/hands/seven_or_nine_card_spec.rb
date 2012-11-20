@@ -7,7 +7,7 @@ module TheGambler
         Hand.new(*%w{2D QH KH 4C JH 10H AH}).royal_flush?.should be_true
       end
 
-      it 'should recognize a straight flush within a seven-card hand', wip:true do
+      it 'should recognize a straight flush within a seven-card hand' do
         Hand.new(*%w{9H QH KH 4C JH 10H 7D}).straight_flush?.should be_true
       end
 
@@ -16,15 +16,15 @@ module TheGambler
       end
 
       it 'should recognize a full house within a seven-card hand' do
-        pending
-        Hand.new(*%w{9D QH KH 4C JH 10H 7D}).royal_flush?.should be_true
+        Hand.new(*%w{9D 9H 9H 4C 4H 10H 7D}).full_house?.should be_true
+        # TODO Add edge case handling for two sets of three here? 
       end
 
-      it 'should recognize a flush within a seven-card hand', wip:true do
+      it 'should recognize a flush within a seven-card hand' do
         Hand.new(*%w{9H QH KH 4C 6H 10H 7D}).flush?.should be_true
       end
 
-      it 'should recognize a straight within a seven-card hand', wip:true do
+      it 'should recognize a straight within a seven-card hand' do
         Hand.new(*%w{9D QH KH JC 6H 10H 7D}).straight?.should be_true
       end
 

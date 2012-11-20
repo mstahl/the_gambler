@@ -98,6 +98,7 @@ module TheGambler
       # values = contents.map(&:numerical_value).sort
       # values == (values.min..values.max).to_a or values == [2, 3, 4, 5, 14]
       nums = contents.map(&:numerical_value)
+      return true if nums.sort == [2, 3, 4, 5, 14]
 
       (2..14).each_cons(5) do |straight|
         return true if (nums & straight).count == 5
