@@ -2,7 +2,7 @@
 
 Yet another poker hand evaluator. I'm writing it because poker hand evaluators
 are useful to me in some of my side projects. If it's useful to you, too, all
-the better.
+the better. If it's not, then don't use it. Easy.
 
 ## Usage
 
@@ -18,19 +18,17 @@ Start rockin':
 You can initialize `Card`s using a (case-insensitive) String (_e.g._ `"JC"`), 
 an Array (_e.g._ `['9', 'S']`), or a Hash (_e.g._ `{rank: 'Q', suit: :diamonds}`).
 
+Hands are just arrays of cards. You can use the `#blackjack_value` and `#poker_value` methods to use
+them in games.
+
 ## Beta progress
 
 Right now, the following stuff works. Assume anything not mentioned in this list doesn't work properly.
 
 * Blackjack hand evaluation
-* (Very) Rough poker hand evaluation (i.e., flush > three of a kind, but not distinguishing between different instances of hands)
-* Exact poker hand evaluation of all types of hands (!!!).
+* Poker hand evaluation
 
-### Known issues
-
-* Hands with the same ranking but different high cards are valued equally.
-
-## Contributing to the_gambler
+## Contributing to `the_gambler`
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
