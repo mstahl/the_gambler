@@ -111,8 +111,8 @@ module TheGambler
     end
     
     def full_house?
-      as_string = contents.sort_by(&:numerical_value).map(&:to_s).join
-      as_string =~ %r{(.{1,2})[SCHD]\1[SCHD]\1[SCHD](.{1,2})[SCHD]\2[SCHD]} or as_string =~ %r{(.{1,2})[SCHD]\1[SCHD](.{1,2})[SCHD]\2[SCHD]\2[SCHD]}
+      c = contents.group_by(&:numerical_value).values.map(&:count)
+      c.any?{|x| x == 3} and c.select{|x| x >= 2}.count >= 2
     end
     
     def four_of_a_kind?
