@@ -95,12 +95,18 @@ module TheGambler
     end
     
     def straight?
-      values = contents.map(&:numerical_value).sort
-      values == (values.min..values.max).to_a or values == [2, 3, 4, 5, 14]
+      # values = contents.map(&:numerical_value).sort
+      # values == (values.min..values.max).to_a or values == [2, 3, 4, 5, 14]
+      nums = contents.map(&:numerical_value)
+
+      (2..14).each_cons(5) do |straight|
+        return true if (nums & straight).count == 5
+      end
     end
     
     def flush?
-      contents.map(&:suit).uniq.count == 1
+      c = contents.group_by(&:suit)
+      !! contents.group_by(&:suit).values.detect{|k| k.count == 5}
     end
     
     def full_house?
@@ -117,7 +123,7 @@ module TheGambler
     end
     
     def royal_flush?
-      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{\A10([SCHD])J\1Q\1K\1A\1\Z}i
+      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{10([SCHD])J\1Q\1K\1A\1}i
     end
     
   end
