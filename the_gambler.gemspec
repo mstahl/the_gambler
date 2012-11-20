@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "the_gambler"
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["max thom stahl"]
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -45,6 +46,7 @@ Gem::Specification.new do |s|
     "spec/hands/poker/hand_three_of_a_kind_spec.rb",
     "spec/hands/poker/hand_two_pair_spec.rb",
     "spec/hands/poker/kicker_cards_spec.rb",
+    "spec/hands/seven_or_nine_card_spec.rb",
     "spec/players/player_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/shared_examples/shared_poker_hands.rb",
