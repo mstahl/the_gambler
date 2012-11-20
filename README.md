@@ -2,7 +2,7 @@
 
 Yet another poker hand evaluator. I'm writing it because poker hand evaluators
 are useful to me in some of my side projects. If it's useful to you, too, all
-the better.
+the better. If it's not, then don't use it. Easy.
 
 ## Usage
 
@@ -30,7 +30,7 @@ Right now, the following stuff works. Assume anything not mentioned in this list
 
 * Hands with the same ranking but different high cards are valued equally.
 
-## Contributing to the_gambler
+## Contributing to `the_gambler`
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
