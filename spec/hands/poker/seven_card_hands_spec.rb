@@ -57,6 +57,10 @@ module TheGambler
         Hand.new(*%w{9D QH KH 4C 2H 10H 7D}).high_card?.should be_true
       end
     end
+
+
+
+
   end
 end
 

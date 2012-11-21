@@ -43,3 +43,15 @@ task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new
+
+namespace :benchmark do
+  require 'the_gambler'
+
+  desc 'Test how long it takes to evaluate a given number of random hands.'
+  task :randoms do
+    10_000_000.times do |i|
+      TheGambler::Hand.new(rand(52), rand(52), rand(52), rand(52), rand(52)).poker_value
+    end
+  end
+end
+
