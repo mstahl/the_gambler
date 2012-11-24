@@ -27,7 +27,8 @@ Right now, the following stuff works. Assume anything not mentioned in this list
 
 * Blackjack hand evaluation
 * Poker hand evaluation
-* 5 or 7 card hands
+* 5- or 7-card hands
+* 9-card hands
 
 ## Contributing to `the_gambler`
  
