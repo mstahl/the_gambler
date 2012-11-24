@@ -8,6 +8,11 @@ module TheGambler
 
     def initialize(arg)
       case arg.class.to_s
+      when 'Card','TheGambler::Card'
+        rank, suit = arg.rank, arg.suit
+      when 'Fixnum'
+        rank = RANKS[arg.zero? ? -1 : arg % 13]
+        suit = SUIT_STRINGS[arg / 13]
       when 'String'
         if arg =~ /([ajqk2-9]|10)([SCHD])/i then
           rank, suit = $1.upcase, $2
@@ -26,8 +31,6 @@ module TheGambler
         else
           raise ArgumentError.new("Invalid hash: #{arg.inspect}")
         end
-      when 'Card','TheGambler::Card'
-        rank, suit = arg.rank, arg.suit
       else
         raise ArgumentError.new("Must supply either a String, an Array, or a Hash, not a #{arg.class.to_s}")
       end
