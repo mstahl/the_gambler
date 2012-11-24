@@ -105,7 +105,7 @@ module TheGambler
     
     def flush?
       c = contents.group_by(&:suit)
-      !! contents.group_by(&:suit).values.detect{|k| k.count == 5}
+      !! contents.group_by(&:suit).values.detect{|k| k.count >= 5}
     end
     
     def full_house?
@@ -122,7 +122,7 @@ module TheGambler
     end
     
     def royal_flush?
-      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{10([SCHD])J\1Q\1K\1A\1}i
+      contents.sort_by(&:numerical_value).map(&:to_s).join =~ %r{10([SCHD]).*J\1.*Q\1.*K\1.*A\1}i
     end
     
   end
