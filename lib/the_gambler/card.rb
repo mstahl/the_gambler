@@ -6,6 +6,8 @@ module TheGambler
     SUIT_SYMBOLS = %w{spades clubs hearts diamonds}.map(&:to_sym)
     RANKS        = %w{2 3 4 5 6 7 8 9 10 J Q K A}
 
+    # Initializer --------------------------------------------------------------
+
     def initialize(arg)
       case arg.class.to_s
       when 'Card','TheGambler::Card'
@@ -40,6 +42,20 @@ module TheGambler
       elsif SUIT_SYMBOLS.include?(suit)
         @raw = 13 * SUIT_SYMBOLS.index(suit) + RANKS.index(rank)
       end
+    end
+
+    # Instance methods ---------------------------------------------------------
+
+    def <(other)
+      return (@raw % 13) < (other.raw % 13)
+    end
+
+    def >(other)
+      return (@raw % 13) > (other.raw % 13)
+    end
+
+    def <=>(other)
+      return (@raw % 13) <=> (other.raw % 13)
     end
 
     def ace?
