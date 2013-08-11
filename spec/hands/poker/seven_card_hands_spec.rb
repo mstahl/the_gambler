@@ -58,9 +58,6 @@ module TheGambler
       end
     end
 
-
-
-
   end
 end
 
