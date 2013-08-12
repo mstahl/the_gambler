@@ -10,7 +10,6 @@ group :development do
   gem "yard"
   gem "rdoc"
   gem "bundler"
-  gem "jeweler"
   gem "nyan-cat-formatter"
   gem "simplecov"
 end
