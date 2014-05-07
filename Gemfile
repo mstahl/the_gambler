@@ -6,10 +6,15 @@ source "http://rubygems.org"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
-  gem "rspec"
-  gem "yard"
-  gem "rdoc"
-  gem "bundler"
-  gem "nyan-cat-formatter"
-  gem "simplecov"
+  gem 'bundler'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'nyan-cat-formatter'
+  gem 'rdoc'
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'spork'
+  gem 'yard'
 end
