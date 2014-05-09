@@ -2,7 +2,7 @@ guard :bundler do
   watch('Gemfile')
 end
 
-guard 'rspec', cli: '--profile' do
+guard 'rspec', cli: '--format progress --profile' do
   watch(%r{^spec/.+_spec\.rb$})
   # watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch(%r{^lib/.*\.rb$})
