@@ -5,9 +5,9 @@ module TheGambler
   class Hand
     include TheGambler::Blackjack
     include TheGambler::Poker
-    
+
     attr_reader :contents
-    
+
     def initialize(*args)
       @contents = []
       args.each{|a| @contents << Card.new(a) }
